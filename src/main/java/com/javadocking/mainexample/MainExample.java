@@ -22,7 +22,6 @@ import com.javadocking.visualizer.FloatExternalizer;
 import com.javadocking.visualizer.SingleMaximizer;
 
 import javax.swing.*;
-import javax.swing.plaf.nimbus.NimbusLookAndFeel;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.Iterator;
@@ -114,11 +113,10 @@ public class MainExample extends JPanel {
         ContactTree contactTree = new ContactTree();
         Find find = new Find();
         Picture sales = new Picture(new ImageIcon(getClass().getResource("/images/salesSm.gif")));
-        Chart chart = new Chart();
         WordList wordList = new WordList();
 
         // The arrays for the dockables and button dockables.
-        dockables = new Dockable[14];
+        dockables = new Dockable[13];
         buttonDockables = new Dockable[42];
 
         // Create the dockables around the content components.
@@ -134,8 +132,7 @@ public class MainExample extends JPanel {
         dockables[9] = createDockable("Contacts", contactTree, "Contacts", new ImageIcon(getClass().getResource("/images/person12.gif")), "Sales Contacts");
         dockables[10] = createDockable("Find", find, "Find", new ImageIcon(getClass().getResource("/images/binocular12.gif")), "Find a text");
         dockables[11] = createDockable("Sales", sales, "Sales", new ImageIcon(getClass().getResource("/images/graph12.gif")), "Sales of Books and CDs");
-        dockables[12] = createDockable("Chart", chart, "Chart", new ImageIcon(getClass().getResource("/images/graph12.gif")), "Chart");
-        dockables[13] = createDockable("Words", wordList, "Words", new ImageIcon(getClass().getResource("/images/table12.gif")), "Roman Gods");
+        dockables[12] = createDockable("Words", wordList, "Words", new ImageIcon(getClass().getResource("/images/table12.gif")), "Roman Gods");
 
         // The dockable with the find panel may not be maximized.
         ((DefaultDockable) dockables[10]).setPossibleStates(DockableState.CLOSED | DockableState.NORMAL | DockableState.MINIMIZED | DockableState.EXTERNALIZED);
@@ -215,7 +212,7 @@ public class MainExample extends JPanel {
         bottomTabbedDock.addDockable(dockables[12], new Position(1));
         bottomTabbedDock.setSelectedDockable(dockables[12]);
         leftTabbedDock.addDockable(dockables[9], new Position(0));
-        rightTabbedDock.addDockable(dockables[13], new Position(0));
+        rightTabbedDock.addDockable(dockables[12], new Position(0));
 
         // The 4 windows have to be splittable.
         SplitDock centerSplitDock = new SplitDock();
